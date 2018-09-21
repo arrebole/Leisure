@@ -9,8 +9,6 @@ int main()
     scanf("%lf", &c);
 
     double dirt = sqrt(b * b - 4 * a * c);
-    //double x1 = (-b+dirt)/(2*a);
-    //double x2 = (-b-dirt)/(2*a);
     printf("%lf\n", (-b + dirt) / (2 * a));
     printf("%lf\n", (-b - dirt) / (2 * a));
 

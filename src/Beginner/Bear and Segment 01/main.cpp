@@ -2,39 +2,57 @@
 
 using namespace std;
 
-class Solution
+string isHave()
 {
-  public:
-    void isHave(string s)
+    string input;
+    string result;
+    cin >> input;
+    int len = input.length();
+    int startAndEnd[2] = {-1,-1};
+
+    for (int i = 0; i < len; i++)
     {
-        bool start = false;
-        int flag = 0;
-        for (int i = 0; i < s.length(); i++)
+        if (input[i] == '1')
         {
-            if (s[i]=='1' && flag== 0)
-            {
-                start = true;
-            }
-            if (start && s[i]='0')
-            {
-                
-            }
+            startAndEnd[0] = i;
+            break;
         }
-        cout << "yes" << endl;
     }
-};
+    for (int i = len - 1; i > 0; i--)
+    {
+        if (input[i] == '1')
+        {
+            startAndEnd[1] = i;
+            break;
+        }
+    }
+
+    if (startAndEnd[0] == -1)
+    {
+        result = "NO";
+        return result;
+    }
+    for (int i = startAndEnd[0]; i < startAndEnd[1]; i++)
+    {
+        if (input[i] == '0')
+        {
+            result = "NO";
+            return result;
+        }
+    }
+
+    result = "YES";
+    return result;
+}
 
 int main()
 {
     int test;
-    Solution solution;
     cin >> test;
 
     while (test--)
     {
-        string s;
-        cin >> s;
-        solution.isHave(s);
+        cout << isHave() << endl;
     }
     return 0;
 }
